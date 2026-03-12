@@ -1,29 +1,23 @@
-require 'csv' 
-require_relative 'registration' 
+require_relative 'registration'
 require_relative 'login'
 
 def main_menu
   loop do
-    puts "\n--- Main Menu ---"
+    puts "\n" + "="*30
+    puts "   TASK MANAGEMENT SYSTEM"
+    puts "="*30
     puts "1. Register"
     puts "2. Login"
     puts "3. Exit"
-    print "Enter your choice:"
-    choice = gets.strip 
+    print "Select Option: "
     
-    case choice
-    when "1"
-      RegistrationLogic.register_user
-    when "2"
-      Loginlogic.login_user
-    when "3"
-      puts "Goodbye!" 
-      break 
-    else
-      puts "Invalid choice. Please select 1, 2, or 3."
+    case gets.strip
+    when "1" then RegistrationLogic.register_user
+    when "2" then LoginLogic.login_user
+    when "3" then (puts "Goodbye!"; exit)
+    else puts "!!! Invalid Choice. Try again !!!"
     end
   end
 end
-
 
 main_menu
